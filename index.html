@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css"/><!-- in your header -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    
+    <title>Joseph Hanvytitle>
+    
+  </head>
+  <body>
+    
+    <div class="jumbotron jumbotron-fluid bg-dark">
+      <canvas id="canvas" class="stars"></canvas>
+      <div class="container text-white h-100 d-flex justify-content-end flex-column">
+        <h1 class="display-1">Joseph Hanvy</h1>
+        <div class="d-flex mb-10">
+          <div id="role-switcher" class="d-inline-block">
+            <div id="role"></div>
+            <div id="old-role"></div>
+          </div>
+          <h1 class="display-4 d-inline-block ml-3">| Developer</h1>
+        </div>
+      </div>
+    </div>
+        
+    <section class="container mt-5 pt-5 mb-5 pb-5">
+      <h1>Who am I?</h1>
+      <div class="row mt-5">
+        <div class="col-md-5 col-xl-3 d-flex justify-content-center align-items-center">
+          <img class="profile-image img-fluid mb-3 rounded-circle" src="https://i.imgur.com/rif1ZLW.jpg"/>
+        </div>
+        <div class="col-md-7 col-xl-9">
+          <p>
+            I'm a Software Developer based in the UK 
+          </p>
+          <p>
+            I'm an experienced .NET desktop and web developer familiar with the needs of small and large 
+            businesses. I work in high-security software development using .NET for the defence industry, 
+            and in my own time I'm CTO of a tech-focused dynamic web startup using Node, Angular 5 and 
+            TypeScript.
+          </p>
+        </div>
+      </div>
+    
+    </section>
+    
+    <section class="container-fluid mt-5 pt-5 mb-5 pb-5 bg-dark text-white">
+      <section class="container">
+        <h1>Skills</h1>
+        <div class="row d-flex align-content-start flex-wrap justify-content-center text-secondary">
+          <div class="skill-square">
+            <i class="icon-lg devicon-dot-net-plain"></i>
+            <h5 class="text-center">.NET</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-html5-plain"></i>
+            <h5 class="text-center">HTML5</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-css3-plain"></i>
+            <h5 class="text-center">CSS3</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-javascript-plain"></i>
+            <h5 class="text-center">JavaScript</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-typescript-plain"></i>
+            <h5 class="text-center">TypeScript</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-nodejs-plain"></i>
+            <h5 class="text-center">NodeJS</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-angularjs-plain"></i>
+            <h5 class="text-center">Angular</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-express-original"></i>
+            <h5 class="text-center">Express</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-bootstrap-plain"></i>
+            <h5 class="text-center">Bootstrap</h5>
+          </div>
+          <div class="skill-square">
+            <i class="icon-lg devicon-git-plain"></i>
+            <h5 class="text-center">Git</h5>
+          </div>
+        </div>
+      </section>
+    </section>
+    
+    
+    <section class="container mt-5">
+      <h1>Projects</h1>
+      
+      <p>
+        Most of my projects are ether for clients, or employers and as such as not open source. However, here are a few that can demonstrate my skils.
+      </p>
+      
+      <h2>Chiron Tutors Web App</h2>
+      <a href="www.app.chirontutors.com">www.app.chirontutors.com</a>
+      <p>Custom built online marketplace built in Angular with a Node/Express backend.</p>
+      
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        See more
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Chiron Tutors</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img class="img-fluid mb-3" src="https://i.imgur.com/cPk23fw.png"/>
+              <p>
+                The client wanted an online solution to manage the admin, and backend work of running a tutoring business - with a final goal of expanding this into a fully fledged marketplace and tutoring platform that supported invoicing and payment facilitation between tutors and clients, job bidding and matching, tutor time keeping and lesson planning.
+              </p>
+              <p>
+                The fronted is written in Angular 5, with NgRx Store and ImmutableJS. The backend is a fully custom ExpressJS system using Node and TypeScript and MySQL.
+              </p>
+              <p>
+                Stripe was used for processing customer payments.
+              </p>
+              <p>
+                The project was so successful I was asked to join the Chiron team, and given a share in the company and continue to develop the software and business.
+              </p>
+              <span class="badge badge-secondary">Angular</span>
+              <span class="badge badge-secondary">Express</span>
+              <span class="badge badge-secondary">TypeScript</span>
+              <span class="badge badge-secondary">Node</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="container-fluid mt-5 pt-5 mb-5 pb-5 bg-dark text-white">
+      <section class="container">
+        <h1>Employment</h1>
+        
+        <div class="employment-row mt-4">
+          <div class="col1">
+            <h2>Software Engineer</h2>
+            <h2><small class="text-light">QinetiQ</small></h2>
+            <div class="bg-primary"></div>
+          </div>
+          <div class="col2">
+            <h5 class="text-light">Sept 2017 - now</h5>
+            <p>
+              Nam suscipit nec quam vel facilisis. Praesent quis fermentum diam. Nam cursus tortor non est
+              iaculis porttitor. Integer ut suscipit nunc. Phasellus malesuada, eros id vestibulum tincidunt,
+              nisi risus aliquet tortor, nec accumsan leo massa in mi. Duis mattis, nunc eget iaculis viverra,
+              augue est sagittis elit
+            </p>
+            <span class="badge badge-secondary">.NET</span>
+            <span class="badge badge-secondary">Windows Forms</span>
+            <span class="badge badge-secondary">Java</span>
+          </div>
+        </div>
+        
+        <div class="employment-row mt-4">
+          <div class="col1">
+            <h2>CTO</h2>
+            <h2><small class="text-light">Chiron Tutors</small></h2>
+            <div class="bg-primary"></div>
+          </div>
+          <div class="col2">
+            <h5 class="text-light">Oct 2017 - now</h5>
+            <p>
+              Nam suscipit nec quam vel facilisis. Praesent quis fermentum diam. Nam cursus tortor non est
+              iaculis porttitor. Integer ut suscipit nunc. Phasellus malesuada, eros id vestibulum tincidunt,
+              nisi risus aliquet tortor, nec accumsan leo massa in mi. Duis mattis, nunc eget iaculis viverra,
+              augue est sagittis elit
+            </p>
+            <span class="badge badge-secondary">Angular</span>
+            <span class="badge badge-secondary">Express</span>
+            <span class="badge badge-secondary">TypeScript</span>
+            <span class="badge badge-secondary">Node</span>
+          </div>
+        </div>
+        
+        <div class="employment-row mt-4">
+          <div class="col1">
+            <h2>Software Design Engineer</h2>
+            <h2><small class="text-light">BAE Systems</small></h2>
+            <div class="bg-primary"></div>
+          </div>
+          <div class="col2">
+            <h5 class="text-light">Sept 2011 - Sept 2017</h5>
+            <p>
+              Nam suscipit nec quam vel facilisis. Praesent quis fermentum diam. Nam cursus tortor non est
+              iaculis porttitor. Integer ut suscipit nunc. Phasellus malesuada, eros id vestibulum tincidunt,
+              nisi risus aliquet tortor, nec accumsan leo massa in mi. Duis mattis, nunc eget iaculis viverra,
+              augue est sagittis elit
+            </p>
+            <span class="badge badge-secondary">.NET</span>
+            <span class="badge badge-secondary">WPF</span>
+            <span class="badge badge-secondary">WCF</span>
+          </div>
+        </div>
+        
+        <div class="employment-row mt-4">
+          <div class="col1">
+            <h2>Software Engineer</h2>
+            <h2><small class="text-light">Scientific Analysis Instruments Ltd.</small></h2>
+            <div class="bg-primary"></div>
+          </div>
+          <div class="col2">
+            <h5 class="text-light">Sept 2010 - Sept 2011</h5>
+            <p>
+              Nam suscipit nec quam vel facilisis. Praesent quis fermentum diam. Nam cursus tortor non est
+              iaculis porttitor. Integer ut suscipit nunc. Phasellus malesuada, eros id vestibulum tincidunt,
+              nisi risus aliquet tortor, nec accumsan leo massa in mi. Duis mattis, nunc eget iaculis viverra,
+              augue est sagittis elit
+            </p>
+            <span class="badge badge-secondary">Java</span>
+            <span class="badge badge-secondary">Swing</span>
+          </div>
+        </div>
+      </section>
+    </section>
+    
+
+    <footer class="container-fluid mt-5 bg-dark text-white">
+      <div class="container">
+        <div class="row pt-5 pb-5">
+          <div class="col-md">
+            2018 Joseph Hanvy
+          </div>
+          <div class="col-md">
+            Software Development
+          </div>
+          <div class="col-md">
+            Github
+            Linked In
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
