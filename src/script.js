@@ -1,3 +1,5 @@
+import './styles/style.scss'
+
 // Constants
 const roles = ['Software', 'Desktop', 'Web', '.NET'];
 const switchTime = 2000;

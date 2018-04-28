@@ -1,0 +1,31 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site",
+  "main": "index.html",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "v4.0.0-alpha.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanvyj/personalSite.git"
+  },
+  "author": "Joseph Hanvy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanvyj/personalSite/issues"
+  },
+  "homepage": "https://github.com/hanvyj/personalSite#readme"
+}
