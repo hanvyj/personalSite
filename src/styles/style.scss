@@ -39,6 +39,11 @@ section {
 .icon-lg {
   font-size: 64pt;
 }
+@media only screen and (max-width: 600px) {
+  .icon-xl {
+    font-size: 32pt;
+  }
+}
 
 .profile-image {
   max-width: 16em;
@@ -58,6 +63,17 @@ section {
   transition: 0.2s;
   border: 3px solid transparent;
 }
+@media only screen and (max-width: 600px) {
+  .skill-square {
+    width: 6em;
+    height: 6em;
+
+    h5 {
+      font-size: 1rem;
+    }
+  }
+}
+  
 
 .skill-square:hover {
   transform: scale(1.08);
