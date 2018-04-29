@@ -8,6 +8,12 @@
   // background-size: cover;
   height: 100vh;
   padding: 0;
+
+  @media only screen and (max-width: 600px) {
+    .display-4 {
+      font-size: 2.2rem;
+    }
+  }
 }
 
 .mb-10 {
@@ -35,12 +41,17 @@ section {
     right: 0;
   }
 }
+@media only screen and (max-width: 600px) {
+  #role-switcher {
+    width: 8rem;
+  }
+}
 
 .icon-lg {
   font-size: 64pt;
 }
 @media only screen and (max-width: 600px) {
-  .icon-xl {
+  .icon-lg {
     font-size: 32pt;
   }
 }
