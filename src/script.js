@@ -1,64 +1,224 @@
 import './styles/style.scss'
+import './contact'
 
-// Constants
+var svgNS = "http://www.w3.org/2000/svg";
+
+// Articles
+let articles;
+let articleExpansions;
+let focussedArticle;
+let focussedArticleExpansion;
+
+// Role switcher
 const roles = ['Software', 'Desktop', 'Web', '.NET'];
 const switchTime = 2000;
 let roleElement;
 let oldRoleElement;
 
-// Code goes here
-document.addEventListener("DOMContentLoaded", ev => { 
+// Connections (as a 'dictionary')
+let connections = {};
+let connectorsSvg;
+
+// Connections (as a 'dictionary')
+let hovers;
+
+document.addEventListener("DOMContentLoaded", ev => {
+  // get an array of articles from the NodeList
+  articles = [].slice.call(document.querySelectorAll(".article"));
+  articleExpansions = [].slice.call(document.querySelectorAll(".article-extension"));
+  
+  // start role switching
   roleElement = document.getElementById('role');
   oldRoleElement = document.getElementById('old-role');
   
   switchRole();
   
-  document.querySelectorAll('.employment-row')
-    .forEach(el => {
-      el.addEventListener("mouseenter", event => {
-        var col1 = el.querySelector('.col1');
-        var col2 = el.querySelector('.col2');
-        var bar = el.querySelector('.col1 div');
-        
-        TweenMax.killTweensOf(col1);
-        TweenMax.killTweensOf(col2);
-        TweenMax.killTweensOf(bar);
-        
-        TweenLite.to(bar, 0.4, { opacity: 0 });
-        TweenLite.to(col1, 0.4, { width: '40%' });
-        TweenLite.set(col2,
-          {
-            opacity: 1,
-            xPercent: 55,
-          });
-        TweenLite.to(col2, 0.4,
-          {
-            opacity: 1,
-            xPercent: 0
-          });
-        
-      })
-      el.addEventListener("mouseleave", event => {
-        var col1 = el.querySelector('.col1');
-        var col2 = el.querySelector('.col2');
-        var bar = el.querySelector('.col1 div');
-        
-        TweenMax.killTweensOf(col1);
-        TweenMax.killTweensOf(col2);
-        TweenMax.killTweensOf(bar);
-        
-        TweenLite.to(bar, 0.4, { opacity: 1 });
-        TweenLite.to(col1, 0.4, { width: '100%' });
-        TweenLite.to(col2, 0.4, {
-          opacity: 0,
-          xPercent: 55
-        });
-      })
-    });
+  // get connections
+  connectorsSvg = document.getElementById('connectors');
+  document.querySelectorAll(`[data-connect]`).forEach(el => {
+    if (!connections[el.dataset.connect]) {
+      const line = document.createElementNS(svgNS, 'path');
+      line.setAttributeNS(null, "class", "connector")
+      connectorsSvg.appendChild(line)
+      connections[el.dataset.connect] = {
+        elements: [],
+        line
+      };
+    }
+    connections[el.dataset.connect].elements.push(el);
+  });
+  
+  // add all the hover events
+  hovers = [].slice.call(document.querySelectorAll(`[data-hover]`)).map(el => ({
+    source: el,
+    target: document.getElementById(el.dataset.hover),
+  }));
+  
+  hovers.forEach((h, i) => {
+    if (h.target) {
+      if (i > 0) {
+        h.target.classList.add("d-none");
+      }
+      
+      h.source.addEventListener("mouseenter", () => {
+        // hide all
+        hovers.forEach(h2 => {
+          h2.target.classList.remove("d-block");
+          h2.target.classList.add("d-none");
+        })
+        h.target.classList.remove("d-none");
+        h.target.classList.add("d-block");
+        redrawConnections();
+      });
+      // el.addEventListener("mouseleave", () => {
+      //   target.classList.remove("d-block");
+      //   target.classList.add("d-none");
+      //   redrawConnections();
+      // });
+    }
+  });
+  
+  update();
 });
 
-let role = 0;
+window.addEventListener("scroll", ev => {
+  update();
+});
 
+window.addEventListener("resize", ev => {
+  update();
+});
+
+function update() {
+  // update focussed article
+  const focusedArticle = getFocussedArticle();
+  if (focusedArticle != null) {
+    setFocussedArticle(focusedArticle);
+  }
+  
+  // redraw connections
+  redrawConnections();
+}
+
+function redrawConnections() {
+  Object.keys(connections).forEach(connectionName => {
+    const connection = connections[connectionName];
+    
+    if (connection.elements.length < 2 ||
+      connection.elements[0].offsetParent === null ||
+      connection.elements[1].offsetParent === null ||
+      connection.elements[0].style.opacity === '0' ||
+      connection.elements[1].style.opacity === '0') {
+      connection.line.style.display = "none";
+      return;
+    }
+    connection.line.style.display = "block";
+    
+    const sourceRect = connection.elements[0].getBoundingClientRect();
+    const targetRect = connection.elements[1].getBoundingClientRect();
+    
+    connection.line.setAttributeNS(null, 'd', generatePath(
+      connection.elements[0].dataset.placement === 'left' ? sourceRect.left - 10 : sourceRect.right + 10,
+      sourceRect.top + (connection.elements[0].offsetHeight / 2),
+      connection.elements[1].dataset.placement === 'left' ? targetRect.left - 10 : targetRect.right + 10,
+      targetRect.top + (connection.elements[1].offsetHeight / 2)));
+  });
+}
+
+function generatePath(x1, y1, x2, y2) {
+  const width = x2 - x1;
+  return `M${x1} ${y1} C ${x1 + width*0.7} ${y1}, ${x2 - width*0.7} ${y2}, ${x2} ${y2}`;
+}
+
+function getFocussedArticle() {
+  return articles.find(article => {
+    const elementTop =  article.getBoundingClientRect().top + document.body.scrollTop;
+    const elementBottom = elementTop + article.offsetHeight;
+    
+    const viewPortCenter = window.innerHeight/2;
+    
+    if (viewPortCenter > elementTop && viewPortCenter < elementBottom) {
+      return articles;
+    }
+  });
+}
+
+function setFocussedArticle(article) {
+  if (focussedArticle !== article) {
+    let oldFocussedArticleExpansion = focussedArticleExpansion;
+    
+    focussedArticle = article;
+    focussedArticleExpansion = document.querySelector(`.article-extension[data-for='${focussedArticle.id}']`);
+    
+    articleExpansions.forEach(ae => {
+      TweenMax.killTweensOf(ae);
+      TweenLite.set(ae, {
+        opacity: 0,
+        transform: 'translateY(-55px)',
+        display: 'none',
+      });
+    });
+    
+    if (oldFocussedArticleExpansion != null) {
+      //focussedArticleExpansion.classList.remove("d-flex");
+      //focussedArticleExpansion.classList.add("d-none");
+      
+      TweenLite.set(oldFocussedArticleExpansion, {
+        opacity: 1,
+        transform: 'translateY(0)',
+        display: 'flex',
+        });
+      redrawConnections()
+      
+      TweenLite.to(oldFocussedArticleExpansion, 0.2, {
+        opacity: 0,
+        transform: 'translateY(55px)',
+        display: 'none',
+        onComplete: () => {
+          TweenLite.set(focussedArticleExpansion, {
+            opacity: 0,
+            transform: 'translateY(-55px)',
+            display: 'none',
+          });
+          redrawConnections()
+          
+          TweenLite.to(focussedArticleExpansion, 0.2, {
+            opacity: 1,
+            transform: 'translateY(0)',
+            display: 'flex',
+            onComplete: () => redrawConnections()
+          });
+        }
+      });
+    } else {
+      TweenLite.set(focussedArticleExpansion, {
+        opacity: 0,
+        transform: 'translateY(-55px)',
+        display: 'none',
+        onComplete: () => redrawConnections()
+      });
+      redrawConnections()
+      
+      TweenLite.to(focussedArticleExpansion, 0.2, {
+        opacity: 1,
+        transform: 'translateY(0)',
+        display: 'flex',
+        onComplete: () => redrawConnections()
+      });
+    }
+    
+        
+    
+    // focussedArticleExpansion.classList.remove("d-none");
+    // focussedArticleExpansion.classList.add("d-flex");
+    console.log(focussedArticle.id);
+    
+    //
+  }
+}
+
+//Roll switching
+let role = 0;
 function switchRole() {
   role = role >= roles.length - 1 ? 0 : role + 1;
   
@@ -102,103 +262,3 @@ function switchRole() {
   //loop
   setTimeout(switchRole, switchTime);
 }
-
-
-class Entity {
-  constructor(ox, oy, x, y) {
-    this.ox = ox;
-    this.oy = oy;
-    this.x = x;
-    this.y = y;
-    this.lastX = x;
-    this.lastY = y;
-    this.angle = Math.atan((y - oy) / (x - ox));
-    this.dist = Math.sqrt((y - oy) * (y - oy) + (x - ox) * (x - ox))
-    this.size = Math.random() * 3;
-    this.alpha = Math.random() * 0.8;
-    this.speed = Math.random() * 0.003;
-    this.tail = (Math.random() * 0.3) + 0.2
-    this.tailGradLength = Math.sin(this.tail) * this.dist;
-  }
-  
-  draw(context) {
-    context.beginPath();
-    
-    context.arc(this.x, this.y, this.size, 0, 2 * Math.PI, false);
-    context.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-    context.fill();
-    
-    //Create gradient
-    context.arc(this.x, this.y, this.size*15, 0, 2 * Math.PI, false);
-    context.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.05})`;
-    context.fill();
-    
-    //Create gradient
-    var gradient2 = context.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.tailGradLength);
-    gradient2.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 0.6})`);
-    gradient2.addColorStop(1, '#FFFFFF00');
-    
-    
-    context.beginPath();
-    context.arc(this.ox, this.oy, this.dist, this.angle - this.tail, this.angle);
-    context.strokeStyle=gradient2;
-    context.lineWidth=this.size * 1.8;
-    context.stroke()
-  }
-  
-  simulate() {
-    this.angle += this.speed;
-    
-    this.lastX = this.x;
-    this.lastY = this.y;
-    
-    this.x = this.ox + Math.cos(this.angle) * this.dist;
-    this.y = this.oy + Math.sin(this.angle) * this.dist;
-  }
-}
-
-var entities = [];
-let starWidth = 0;
-let starHeight = 0;
-
-for (let i = 0; i < 500; i++) {
-  entities.push(new Entity(100, 100,
-    (Math.random() - 0.5) * 3000,
-    (Math.random() - 0.5) * 2000));
-}
-function render() {
-  const canvas = document.getElementById('canvas');
-  var context = canvas.getContext("2d");
-  
-  // set size
-  if (starWidth != canvas.offsetWidth || starHeight != canvas.offsetHeight)
-  {
-    starWidth = canvas.offsetWidth;
-    starHeight = canvas.offsetHeight;
-    canvas.width = starWidth;
-    canvas.height = starHeight;
-  }
-  
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  
-  for (var i = 0; i < entities.length ; i++) {
-    entities[i].draw(context);
-  }
-}
-
-// Animate.
-function animate() {
-  requestAnimationFrame(animate);
-  render();
-}
-
-// Simulation loop
-function simulate() {
-  for (var i = 0; i < entities.length ; i++) {
-    entities[i].simulate();
-  }
-  setTimeout(simulate, 1000/60)
-}
-
-window.requestAnimationFrame(animate)
-simulate();

@@ -4,6 +4,8 @@
   "description": "Portfolio site",
   "main": "index.html",
   "dependencies": {
+    "bootstrap": "^4.1.1",
+    "botui": "^0.3.4"
   },
   "devDependencies": {
     "webpack": "^4.6.0",
