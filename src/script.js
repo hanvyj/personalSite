@@ -12,8 +12,7 @@ let focussedArticleExpansion;
 // Role switcher
 const roles = ['Software', 'Desktop', 'Web', '.NET'];
 const switchTime = 2000;
-let roleElement;
-let oldRoleElement;
+let roleSwitchers = [];
 
 // Connections (as a 'dictionary')
 let connections = {};
@@ -28,8 +27,11 @@ document.addEventListener("DOMContentLoaded", ev => {
   articleExpansions = [].slice.call(document.querySelectorAll(".article-extension"));
   
   // start role switching
-  roleElement = document.getElementById('role');
-  oldRoleElement = document.getElementById('old-role');
+  roleSwitchers = [].slice.call(document.querySelectorAll(".role-switcher")).map(el => ({
+    roleElement: el.querySelector('.role'),
+    oldRoleElement: el.querySelector('.old-role'),
+    class: el.dataset.roleclass
+  }));
   
   switchRole();
   
@@ -70,11 +72,6 @@ document.addEventListener("DOMContentLoaded", ev => {
         h.target.classList.add("d-block");
         redrawConnections();
       });
-      // el.addEventListener("mouseleave", () => {
-      //   target.classList.remove("d-block");
-      //   target.classList.add("d-none");
-      //   redrawConnections();
-      // });
     }
   });
   
@@ -159,10 +156,7 @@ function setFocussedArticle(article) {
       });
     });
     
-    if (oldFocussedArticleExpansion != null) {
-      //focussedArticleExpansion.classList.remove("d-flex");
-      //focussedArticleExpansion.classList.add("d-none");
-      
+    if (oldFocussedArticleExpansion != null) {      
       TweenLite.set(oldFocussedArticleExpansion, {
         opacity: 1,
         transform: 'translateY(0)',
@@ -206,14 +200,6 @@ function setFocussedArticle(article) {
         onComplete: () => redrawConnections()
       });
     }
-    
-        
-    
-    // focussedArticleExpansion.classList.remove("d-none");
-    // focussedArticleExpansion.classList.add("d-flex");
-    console.log(focussedArticle.id);
-    
-    //
   }
 }
 
@@ -221,44 +207,47 @@ function setFocussedArticle(article) {
 let role = 0;
 function switchRole() {
   role = role >= roles.length - 1 ? 0 : role + 1;
-  
-  // roll switching
-  if (oldRoleElement.lastChild) {
-    oldRoleElement.removeChild(oldRoleElement.lastChild);
-  }
-  let lastChild = roleElement.lastChild;
-  if (lastChild) {
-    roleElement.removeChild(lastChild);
-    oldRoleElement.appendChild(lastChild);
-  }
-  
-  let h = document.createElement("H1");
-  h.setAttribute("class", "display-4");
-  h.setAttribute("id", "dev");
-  let t = document.createTextNode(roles[role]);
-  h.appendChild(t);
-  roleElement.appendChild(h);
-  
-  TweenLite.set(roleElement, {
-      opacity: 0,
-      transform: 'translateY(-55px)',
-    });
+
+  roleSwitchers.forEach(roleSwitcher => {
+    if (roleSwitcher.oldRoleElement.lastChild) {
+      roleSwitcher.oldRoleElement.removeChild(roleSwitcher.oldRoleElement.lastChild);
+    }
+    let lastChild = roleSwitcher.roleElement.lastChild;
+    if (lastChild) {
+      roleSwitcher.roleElement.removeChild(lastChild);
+      roleSwitcher.oldRoleElement.appendChild(lastChild);
+    }
     
-  TweenLite.to(roleElement, 0.5, {
-      opacity: 1,
-      transform: 'translateY(0)',
-    });
+    let h = document.createElement("H1");
+    if (roleSwitcher.class) {
+      h.setAttribute("class", roleSwitcher.class);
+    }
+    h.setAttribute("id", "dev");
+    let t = document.createTextNode(roles[role]);
+    h.appendChild(t);
+    roleSwitcher.roleElement.appendChild(h);
+    
+    TweenLite.set(roleSwitcher.roleElement, {
+        opacity: 0,
+        transform: 'translateY(-55px)',
+      });
       
-  TweenLite.set(oldRoleElement, {
-      opacity: 1,
-      transform: 'translateY(0)',
-    });
-  
-  TweenLite.to(oldRoleElement, 0.5, {
-      opacity: 0,
-      transform: 'translateY(55px)',
-    });
+    TweenLite.to(roleSwitcher.roleElement, 0.5, {
+        opacity: 1,
+        transform: 'translateY(0)',
+      });
+        
+    TweenLite.set(roleSwitcher.oldRoleElement, {
+        opacity: 1,
+        transform: 'translateY(0)',
+      });
     
+    TweenLite.to(roleSwitcher.oldRoleElement, 0.5, {
+        opacity: 0,
+        transform: 'translateY(55px)',
+      });
+  });
+      
   //loop
   setTimeout(switchRole, switchTime);
 }
