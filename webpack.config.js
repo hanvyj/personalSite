@@ -21,6 +21,14 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
+      },
+      {
+        use: {
+          loader:'babel-loader',
+          options: { presets: ['es2015'] }
+        },
+        test: /\.js$/,
+        exclude: /node_modules/
       }
     ]
   },

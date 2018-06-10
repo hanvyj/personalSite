@@ -115,15 +115,15 @@ function generatePath(x1, y1, x2, y2) {
 }
 
 function getFocussedArticle() {
+  console.log(articles);
   return articles.find(article => {
-    const elementTop =  article.getBoundingClientRect().top + document.body.scrollTop;
-    const elementBottom = elementTop + article.offsetHeight;
-    
+    const rect =  article.getBoundingClientRect();
+
     const viewPortCenter = window.innerHeight/2;
     
-    if (viewPortCenter > elementTop && viewPortCenter < elementBottom) {
-      return articles;
-    }
+    console.log(article.id, article.getBoundingClientRect());
+
+    return viewPortCenter > rect.top && viewPortCenter < rect.bottom;
   });
 }
 
