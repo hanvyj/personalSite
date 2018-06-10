@@ -26,5 +26,10 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css')
-  ]
+  ],
+  resolve: {
+    alias: {
+      'vue': 'vue/dist/vue.min.js',
+    }
+  },
 }

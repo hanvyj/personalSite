@@ -53,6 +53,11 @@ $headings-font-family: 'Raleway', serif;
   background: linear-gradient(295deg, rgba(18,44,52,1) 0%, rgba(76,44,114,1) 35%, rgba(186,44,115,1) 100%);
 }
 
+.static-col {
+  margin-left: -$grid-gutter-width/2;
+  margin-right: -$grid-gutter-width/2;
+}
+
 .role-switcher {
   text-align: right;
   position: relative;
@@ -65,15 +70,17 @@ $headings-font-family: 'Raleway', serif;
 
 @include media-breakpoint-down(xs) {
   .role-switcher {
-    width: 4em;
+    width: 6em;
   }
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-only(sm) {
   .role-switcher {
     width: 8em;
   }

@@ -1,3 +1,5 @@
+import 'botui';
+
 const botui = new BotUI('delivery-bot');
 let name = '';
 let email = '';

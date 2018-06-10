@@ -9,10 +9,6 @@
   <!-- Dev Icons -->
   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
-  <!--Bot UI-->
-  <link rel="stylesheet" href="https://unpkg.com/botui/build/botui.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/botui/build/botui-theme-default.css" />
-
   <link rel="stylesheet" href="dist/style.css" />
 
   <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -26,13 +22,13 @@
   <title>Joe Hanvy</title>
 </head>
 
-<body class="h-100 bg-light">
+<body class="container-fluid h-100 bg-light">
   <svg id="connectors" class="position-fixed w-100 h-100"></svg>
-  <main class="row h-100">
+  <main class="row d-flex h-100">
     <section class="d-none d-lg-block col-0 col-lg-6">
-      <div class="position-fixed mh-vh w-50vh bg-gradient d-flex">
+      <div class="position-fixed static-col mh-vh w-50vh bg-gradient d-flex justify-content-end">
 
-        <article class="article-extension pr-5 container text-white text-right w-100 justify-content-center align-items-end flex-column"
+        <article class="article-extension pr-5 container mr-0 text-white text-right w-100 justify-content-center align-items-end flex-column"
           data-for="introduction">
           <h1 class="display-1">Joseph Hanvy</h1>
           <div class="d-flex mb-10">
@@ -44,7 +40,7 @@
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white text-right w-100 justify-content-center align-items-end flex-column"
+        <article class="article-extension pr-5 container mr-0 text-white text-right w-100 justify-content-center align-items-end flex-column"
           data-for="skills">
           <h1 class="display-1">Skills</h1>
           <section class="skill-info  mw-40 text-left w-100">
@@ -122,13 +118,13 @@
           </section>
         </article>
 
-        <article class="article-extension pr-5 container text-white w-100 align-items-center justify-content-end" data-for="get-in-touch">
+        <article class="article-extension pr-5 container mr-0 text-white w-100 align-items-center justify-content-end" data-for="get-in-touch">
           <div class="botui-app-container" id="delivery-bot">
             <bot-ui></bot-ui>
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white text-right w-100 justify-content-center align-items-end flex-column"
+        <article class="article-extension pr-5 container mr-0 text-white text-right w-100 justify-content-center align-items-end flex-column"
           data-for="chiron">
           <h1 class="display-1">Chiron </h1>
 
@@ -163,7 +159,7 @@
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white w-100 justify-content-center align-items-end flex-column" data-for="qinetiq">
+        <article class="article-extension pr-5 container mr-0 text-white w-100 justify-content-center align-items-end flex-column" data-for="qinetiq">
           <div class="mw-40">
             <h1 class="display-1">QinetiQ</h1>
             <p class="lead">
@@ -172,7 +168,7 @@
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white w-100 justify-content-center align-items-end flex-column" data-for="chiron-employment">
+        <article class="article-extension pr-5 container mr-0 text-white w-100 justify-content-center align-items-end flex-column" data-for="chiron-employment">
           <div class="mw-40">
             <h1 class="display-1">Chiron</h1>
             <p class="lead">
@@ -187,7 +183,7 @@
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white w-100 justify-content-center align-items-end flex-column" data-for="baesystems">
+        <article class="article-extension pr-5 container mr-0 text-white w-100 justify-content-center align-items-end flex-column" data-for="baesystems">
           <div class="mw-40">
             <h1 class="d-none d-xl-block display-1">BAE Systems</h1>
             <h1 class="d-block d-xl-none display-3">BAE Systems</h1>
@@ -218,7 +214,7 @@
           </div>
         </article>
 
-        <article class="article-extension pr-5 container text-white w-100 justify-content-center align-items-end flex-column" data-for="sai-ltd">
+        <article class="article-extension pr-5 container mr-0 text-white w-100 justify-content-center align-items-end flex-column" data-for="sai-ltd">
           <div class="mw-40">
             <h1 class="d-none d-xl-block display-3">Scientific Analysis Instruments Ltd</h1>
             <h1 class="d-block d-xl-none display-5">Scientific Analysis Instruments Ltd</h1>
@@ -238,203 +234,201 @@
       </div>
     </section>
     <section class="col-12 col-lg-6 main">
-      <div>
-        <div class="mh-40vh d-none d-lg-block">
-        </div>
+      <div class="mh-40vh d-none d-lg-block">
+      </div>
 
-        <div class="mh-40vh d-block d-lg-none bg-gradient text-white d-flex flex-column justify-content-end">
-          <div class="container">
-            <h1 class="display-3">Joseph Hanvy</h1>
-            <div class="d-flex mb-4">
-              <div class="d-inline-block role-switcher">
-                <div class="role"></div>
-                <div class="old-role"></div>
-              </div>
-              <h1 class="d-inline-block ml-3">| Developer</h1>
+      <div class="mh-40vh static-col d-block d-lg-none bg-gradient text-white d-flex flex-column justify-content-end">
+        <div class="container">
+          <h1 class="display-3">Joseph Hanvy</h1>
+          <div class="d-flex mb-4">
+            <div class="d-inline-block role-switcher">
+              <div class="role"></div>
+              <div class="old-role"></div>
             </div>
+            <h1 class="d-inline-block ml-3">| Developer</h1>
           </div>
         </div>
-
-        <div class="container">
-          <article class="article pt-6 pb-6" id="introduction">
-            <h1 class="text-primary">Who am I?</h1>
-            <p>
-              I'm a Software Developer based in the UK
-            </p>
-            <p>
-              I'm an experienced .NET desktop and web developer familiar with the needs of small and large businesses. I work in high-security
-              software development using .NET for the defence industry, and in my own time I'm CTO of a tech-focused dynamic
-              web startup using Node, Angular 5 and TypeScript.
-            </p>
-          </article>
-
-          <article class="article pt-6 pb-6" id="skills">
-            <h1 class="text-primary">Skills</h1>
-            <div class="row d-flex align-content-start flex-wrap justify-content-center text-secondary">
-              <div class="skill-square" data-connect="dot-net" data-placement="left" data-hover="dot-net-details">
-                <i class="icon-lg devicon-dot-net-plain"></i>
-                <h5 class="text-center">.NET</h5>
-              </div>
-              <div class="skill-square" data-connect="html5" data-placement="left" data-hover="html5-details">
-                <i class="icon-lg devicon-html5-plain"></i>
-                <h5 class="text-center">HTML5</h5>
-              </div>
-              <div class="skill-square" data-connect="css3" data-placement="left" data-hover="css3-details">
-                <i class="icon-lg devicon-css3-plain"></i>
-                <h5 class="text-center">CSS3</h5>
-              </div>
-              <div class="skill-square" data-connect="js" data-placement="left" data-hover="js-details">
-                <i class="icon-lg devicon-javascript-plain"></i>
-                <h5 class="text-center">JavaScript</h5>
-              </div>
-              <div class="skill-square" data-connect="ts" data-placement="left" data-hover="ts-details">
-                <i class="icon-lg devicon-typescript-plain"></i>
-                <h5 class="text-center">TypeScript</h5>
-              </div>
-              <div class="skill-square" data-connect="node" data-placement="left" data-hover="node-details">
-                <i class="icon-lg devicon-nodejs-plain"></i>
-                <h5 class="text-center">NodeJS</h5>
-              </div>
-              <div class="skill-square" data-connect="angular" data-placement="left" data-hover="angular-details">
-                <i class="icon-lg devicon-angularjs-plain"></i>
-                <h5 class="text-center">Angular</h5>
-              </div>
-              <div class="skill-square" data-connect="express" data-placement="left" data-hover="express-details">
-                <i class="icon-lg devicon-express-original"></i>
-                <h5 class="text-center">Express</h5>
-              </div>
-              <div class="skill-square" data-connect="git" data-placement="left" data-hover="git-details">
-                <i class="icon-lg devicon-git-plain"></i>
-                <h5 class="text-center">Git</h5>
-              </div>
-              <div class="skill-square" data-connect="bootstrap" data-placement="left" data-hover="bootstrap-details">
-                <i class="icon-lg devicon-bootstrap-plain"></i>
-                <h5 class="text-center">Bootstrap</h5>
-              </div>
-            </div>
-          </article>
-
-          <article class="article pt-6 pb-6" id="get-in-touch">
-            <h1 class="text-primary">Get in touch</h1>
-            <p>
-              Get in touch through social media, or by sending me a message
-            </p>
-            <div class="d-flex align-content-start flex-wrap justify-content-center text-secondary">
-              <div class="mx-2 text-primary d-flex align-items-center">
-                <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" />
-                <a class="mx-2" href="https://www.linkedin.com/in/joseph-hanvy-8a81167b/">Linked In</a>
-              </div>
-              <div class="mx-2 text-primary d-flex align-items-center">
-                <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/gmail.svg" />
-                <a class="mx-2" href="mailto:hanvyj@hotmail.com">Email</a>
-              </div>
-              <div class="mx-2 text-primary d-flex align-items-center">
-                <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/github.svg" />
-                <a class="mx-2" href="https://github.com/hanvyj">Github</a>
-              </div>
-              <div class="mx-2 text-primary d-flex align-items-center">
-                <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/stackoverflow.svg" />
-                <a class="mx-2" href="https://stackoverflow.com/users/1305699/joe">Stack overflow</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="article pt-6 pb-6" id="chiron">
-            <h1 class="text-primary">Projects</h1>
-
-            <p>
-              Most of my projects are ether for clients, or employers and as such as not open source. However, here are a few that can
-              demonstrate my skils.
-            </p>
-            <h2 class="text-primary">Chiron Tutors Web App</h2>
-            <a href="www.app.chirontutors.com">www.app.chirontutors.com</a>
-            <p>Custom built online marketplace built in Angular with a Node/Express backend.</p>
-
-            <p>
-              The client wanted an online solution to manage the admin, and backend work of running a tutoring business - with a final
-              goal of expanding this into a fully fledged marketplace and tutoring platform that supported invoicing and
-              payment facilitation between tutors and clients, job bidding and matching, tutor time keeping and lesson planning.
-            </p>
-            <p>
-              The fronted is written in Angular 5, with NgRx Store and ImmutableJS. The backend is a fully custom ExpressJS system using
-              Node and TypeScript and MySQL.
-            </p>
-            <p>
-              Stripe was used for processing customer payments.
-            </p>
-            <p>
-              The project was so successful I was asked to join the Chiron team, and given a share in the company and continue to develop
-              the software and business.
-            </p>
-            <span class="badge badge-info">Angular</span>
-            <span class="badge badge-info">Express</span>
-            <span class="badge badge-info">TypeScript</span>
-            <span class="badge badge-info">Node</span>
-          </article>
-
-          <article class="article pt-6" id="qinetiq">
-            <h1 class="text-primary">Employment</h1>
-
-            <div class="text-center d-flex align-items-center flex-column">
-              <h1 class="text-primary">QinetiQ</h1>
-              <h2 class="text-muted">Software Engineer</h2>
-              <h5 class="text-muted">Sept 2017 - now</h5>
-              <div class="d-flex">
-                <span class="badge badge-info mx-2">.NET</span>
-                <span class="badge badge-info mx-2">Windows Forms</span>
-                <span class="badge badge-info mx-2">Java</span>
-              </div>
-            </div>
-            <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
-          </article>
-
-          <article class="article" id="chiron-employment">
-            <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
-            <div class="text-center d-flex align-items-center flex-column">
-              <h1 class="text-primary">Chiron Tutors</h1>
-              <h2 class="text-muted">CTO</h2>
-              <h5 class="text-muted">August 2017 - now</h5>
-              <div class="d-flex">
-                <span class="badge badge-info mx-2">Angular</span>
-                <span class="badge badge-info mx-2">Express</span>
-                <span class="badge badge-info mx-2">TypeScript</span>
-                <span class="badge badge-info mx-2">Node</span>
-              </div>
-            </div>
-            <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
-          </article>
-
-          <article class="article" id="baesystems">
-            <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
-            <div class="text-center d-flex align-items-center flex-column">
-              <h1 class="text-primary">BAE Systems</h1>
-              <h2 class="text-muted">Software Design Engineer</h2>
-              <h5 class="text-muted">Sept 2011 - Sept 2017</h5>
-              <div class="d-flex">
-                <span class="badge badge-info mx-2">.NET</span>
-                <span class="badge badge-info mx-2">WPF</span>
-                <span class="badge badge-info mx-2">WCF</span>
-              </div>
-            </div>
-            <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
-          </article>
-
-          <article class="article pb-6" id="sai-ltd">
-            <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
-            <div class="text-center d-flex align-items-center flex-column">
-              <h1 class="text-primary">Scientific Analysis Instruments Ltd</h1>
-              <h2 class="text-muted">Software Developer</h2>
-              <h5 class="text-muted">Sept 2010 - Sept 2011</h5>
-              <div class="d-flex">
-                <span class="badge badge-info mx-2">Java</span>
-                <span class="badge badge-info mx-2">Swing</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-        <div class="mh-40vh"></div>
       </div>
+
+      <div class="container w-auto mx-auto mx-xl-5 mx-lg-3">
+        <article class="article pt-6 pb-6" id="introduction">
+          <h1 class="text-primary">Who am I?</h1>
+          <p>
+            I'm a Software Developer based in the UK
+          </p>
+          <p>
+            I'm an experienced .NET desktop and web developer familiar with the needs of small and large businesses. I work in high-security
+            software development using .NET for the defence industry, and in my own time I'm CTO of a tech-focused dynamic
+            web startup using Node, Angular 5 and TypeScript.
+          </p>
+        </article>
+
+        <article class="article pt-6 pb-6" id="skills">
+          <h1 class="text-primary">Skills</h1>
+          <div class="row d-flex align-content-start flex-wrap justify-content-center text-secondary">
+            <div class="skill-square" data-connect="dot-net" data-placement="left" data-hover="dot-net-details">
+              <i class="icon-lg devicon-dot-net-plain"></i>
+              <h5 class="text-center">.NET</h5>
+            </div>
+            <div class="skill-square" data-connect="html5" data-placement="left" data-hover="html5-details">
+              <i class="icon-lg devicon-html5-plain"></i>
+              <h5 class="text-center">HTML5</h5>
+            </div>
+            <div class="skill-square" data-connect="css3" data-placement="left" data-hover="css3-details">
+              <i class="icon-lg devicon-css3-plain"></i>
+              <h5 class="text-center">CSS3</h5>
+            </div>
+            <div class="skill-square" data-connect="js" data-placement="left" data-hover="js-details">
+              <i class="icon-lg devicon-javascript-plain"></i>
+              <h5 class="text-center">JavaScript</h5>
+            </div>
+            <div class="skill-square" data-connect="ts" data-placement="left" data-hover="ts-details">
+              <i class="icon-lg devicon-typescript-plain"></i>
+              <h5 class="text-center">TypeScript</h5>
+            </div>
+            <div class="skill-square" data-connect="node" data-placement="left" data-hover="node-details">
+              <i class="icon-lg devicon-nodejs-plain"></i>
+              <h5 class="text-center">NodeJS</h5>
+            </div>
+            <div class="skill-square" data-connect="angular" data-placement="left" data-hover="angular-details">
+              <i class="icon-lg devicon-angularjs-plain"></i>
+              <h5 class="text-center">Angular</h5>
+            </div>
+            <div class="skill-square" data-connect="express" data-placement="left" data-hover="express-details">
+              <i class="icon-lg devicon-express-original"></i>
+              <h5 class="text-center">Express</h5>
+            </div>
+            <div class="skill-square" data-connect="git" data-placement="left" data-hover="git-details">
+              <i class="icon-lg devicon-git-plain"></i>
+              <h5 class="text-center">Git</h5>
+            </div>
+            <div class="skill-square" data-connect="bootstrap" data-placement="left" data-hover="bootstrap-details">
+              <i class="icon-lg devicon-bootstrap-plain"></i>
+              <h5 class="text-center">Bootstrap</h5>
+            </div>
+          </div>
+        </article>
+
+        <article class="article pt-6 pb-6" id="get-in-touch">
+          <h1 class="text-primary">Get in touch</h1>
+          <p>
+            Get in touch through social media, or by sending me a message
+          </p>
+          <div class="d-flex align-content-start flex-wrap justify-content-center text-secondary">
+            <div class="mx-2 text-primary d-flex align-items-center">
+              <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" />
+              <a class="mx-2" href="https://www.linkedin.com/in/joseph-hanvy-8a81167b/">Linked In</a>
+            </div>
+            <div class="mx-2 text-primary d-flex align-items-center">
+              <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/gmail.svg" />
+              <a class="mx-2" href="mailto:hanvyj@hotmail.com">Email</a>
+            </div>
+            <div class="mx-2 text-primary d-flex align-items-center">
+              <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/github.svg" />
+              <a class="mx-2" href="https://github.com/hanvyj">Github</a>
+            </div>
+            <div class="mx-2 text-primary d-flex align-items-center">
+              <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/stackoverflow.svg" />
+              <a class="mx-2" href="https://stackoverflow.com/users/1305699/joe">Stack overflow</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="article pt-6 pb-6" id="chiron">
+          <h1 class="text-primary">Projects</h1>
+
+          <p>
+            Most of my projects are ether for clients, or employers and as such as not open source. However, here are a few that can
+            demonstrate my skils.
+          </p>
+          <h2 class="text-primary">Chiron Tutors Web App</h2>
+          <a href="www.app.chirontutors.com">www.app.chirontutors.com</a>
+          <p>Custom built online marketplace built in Angular with a Node/Express backend.</p>
+
+          <p>
+            The client wanted an online solution to manage the admin, and backend work of running a tutoring business - with a final
+            goal of expanding this into a fully fledged marketplace and tutoring platform that supported invoicing and
+            payment facilitation between tutors and clients, job bidding and matching, tutor time keeping and lesson planning.
+          </p>
+          <p>
+            The fronted is written in Angular 5, with NgRx Store and ImmutableJS. The backend is a fully custom ExpressJS system using
+            Node and TypeScript and MySQL.
+          </p>
+          <p>
+            Stripe was used for processing customer payments.
+          </p>
+          <p>
+            The project was so successful I was asked to join the Chiron team, and given a share in the company and continue to develop
+            the software and business.
+          </p>
+          <span class="badge badge-info">Angular</span>
+          <span class="badge badge-info">Express</span>
+          <span class="badge badge-info">TypeScript</span>
+          <span class="badge badge-info">Node</span>
+        </article>
+
+        <article class="article pt-6" id="qinetiq">
+          <h1 class="text-primary">Employment</h1>
+
+          <div class="text-center d-flex align-items-center flex-column">
+            <h1 class="text-primary">QinetiQ</h1>
+            <h2 class="text-muted">Software Engineer</h2>
+            <h5 class="text-muted">Sept 2017 - now</h5>
+            <div class="d-flex">
+              <span class="badge badge-info mx-2">.NET</span>
+              <span class="badge badge-info mx-2">Windows Forms</span>
+              <span class="badge badge-info mx-2">Java</span>
+            </div>
+          </div>
+          <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
+        </article>
+
+        <article class="article" id="chiron-employment">
+          <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
+          <div class="text-center d-flex align-items-center flex-column">
+            <h1 class="text-primary">Chiron Tutors</h1>
+            <h2 class="text-muted">CTO</h2>
+            <h5 class="text-muted">August 2017 - now</h5>
+            <div class="d-flex">
+              <span class="badge badge-info mx-2">Angular</span>
+              <span class="badge badge-info mx-2">Express</span>
+              <span class="badge badge-info mx-2">TypeScript</span>
+              <span class="badge badge-info mx-2">Node</span>
+            </div>
+          </div>
+          <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
+        </article>
+
+        <article class="article" id="baesystems">
+          <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
+          <div class="text-center d-flex align-items-center flex-column">
+            <h1 class="text-primary">BAE Systems</h1>
+            <h2 class="text-muted">Software Design Engineer</h2>
+            <h5 class="text-muted">Sept 2011 - Sept 2017</h5>
+            <div class="d-flex">
+              <span class="badge badge-info mx-2">.NET</span>
+              <span class="badge badge-info mx-2">WPF</span>
+              <span class="badge badge-info mx-2">WCF</span>
+            </div>
+          </div>
+          <div class="mt-2 pt-6 w-connector bg-secondary mx-auto"></div>
+        </article>
+
+        <article class="article pb-6" id="sai-ltd">
+          <div class="mb-2 pt-6 w-connector bg-secondary mx-auto"></div>
+          <div class="text-center d-flex align-items-center flex-column">
+            <h1 class="text-primary">Scientific Analysis Instruments Ltd</h1>
+            <h2 class="text-muted">Software Developer</h2>
+            <h5 class="text-muted">Sept 2010 - Sept 2011</h5>
+            <div class="d-flex">
+              <span class="badge badge-info mx-2">Java</span>
+              <span class="badge badge-info mx-2">Swing</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="mh-40vh"></div>
     </section>
   </main>
 
@@ -446,7 +440,6 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
-  <script src="https://unpkg.com/botui/build/botui.min.js"></script>
   <script src="dist/bundle.js"></script>
 </body>
 
