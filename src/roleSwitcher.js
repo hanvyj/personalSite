@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", ev => {
 function switchRole() {
   role = role >= roles.length - 1 ? 0 : role + 1;
 
+  const onComplete = (() => {
+    let executed = false;
+    return function() {
+        if (!executed) {
+            executed = true;
+            setTimeout(switchRole, switchTime);
+        }
+    };
+  })();
+
   roleSwitchers.forEach(roleSwitcher => {
     if (roleSwitcher.oldRoleElement.lastChild) {
       roleSwitcher.oldRoleElement.removeChild(roleSwitcher.oldRoleElement.lastChild);
@@ -54,9 +64,7 @@ function switchRole() {
     TweenLite.to(roleSwitcher.oldRoleElement, 0.5, {
         opacity: 0,
         transform: 'translateY(55px)',
+        onComplete: onComplete
       });
   });
-      
-  //loop
-  setTimeout(switchRole, switchTime);
 }
